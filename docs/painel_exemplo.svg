@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="1440" height="900">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#334155" />
+    </linearGradient>
+    <linearGradient id="slabGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0.30" />
+    </linearGradient>
+    <filter id="dropShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.4" />
+    </filter>
+  </defs>
+
+  <!-- Fundo Principal -->
+  <rect width="1440" height="900" fill="url(#bgGrad)" />
+
+  <!-- Cabeçalho Técnico -->
+  <rect x="30" y="25" width="1380" height="95" rx="12" fill="url(#cardGrad)" filter="url(#dropShadow)" />
+  <text x="55" y="65" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="700" fill="#f8fafc">LOFRANO TECNOLOGIA</text>
+  <text x="55" y="95" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#94a3b8">DIMENSIONAMENTO DE LAJES MACIÇAS DE CONCRETO ARMADO · ABNT NBR 6118:2023</text>
+
+  <!-- Selo de Conformidade Geral -->
+  <rect x="1080" y="42" width="300" height="60" rx="8" fill="#ef4444" fill-opacity="0.2" stroke="#ef4444" stroke-width="2" />
+  <circle cx="1115" cy="72" r="12" fill="#ef4444" />
+  <text x="1140" y="78" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#ef4444">NÃO CONFORME</text>
+
+  <!-- Painel 1: Planta Baixa e Geometria da Laje -->
+  <rect x="30" y="140" width="580" height="440" rx="12" fill="url(#cardGrad)" filter="url(#dropShadow)" />
+  <text x="55" y="175" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#38bdf8">1. Planta Baixa e Vinculações de Borda</text>
+  <text x="55" y="200" font-family="system-ui, sans-serif" font-size="13" fill="#94a3b8">Laje L1_Piso_Residencial: 4.00m x 5.00m · h = 10.0 cm · CRUZ</text>
+
+  <!-- Corpo da Laje em Planta -->
+  <rect x="97.5" y="175.0" width="425.0" height="340.0" rx="4" fill="url(#slabGrad)" />
+
+  <!-- Malha de Armadura Ilustrativa no Miolo -->
+  <line x1="127.5" y1="345.0" x2="492.5" y2="345.0" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6,4" />
+  <line x1="310.0" y1="200.0" x2="310.0" y2="490.0" stroke="#10b981" stroke-width="2" stroke-dasharray="6,4" />
+  <text x="310.0" y="335.0" font-family="monospace" font-size="12" font-weight="700" fill="#f59e0b" text-anchor="middle">As,x: Φ8.0 c/20cm</text>
+  <text x="310.0" y="370.0" font-family="monospace" font-size="12" font-weight="700" fill="#10b981" text-anchor="middle">As,y: Φ8.0 c/20cm</text>
+
+  <!-- 4 Bordas com identificação de vinculação -->
+  <!-- Borda X0 (esquerda) -->
+  <line x1="97.5" y1="175.0" x2="97.5" y2="515.0" stroke="#059669" stroke-width="6" />
+  <text x="85.5" y="345.0" font-family="sans-serif" font-size="11" fill="#059669" text-anchor="end" transform="rotate(-90, 85.5, 345.0)">APOIADA</text>
+
+  <!-- Borda X1 (direita) -->
+  <line x1="522.5" y1="175.0" x2="522.5" y2="515.0" stroke="#059669" stroke-width="6" />
+  <text x="537.5" y="345.0" font-family="sans-serif" font-size="11" fill="#059669" text-anchor="start" transform="rotate(90, 537.5, 345.0)">APOIADA</text>
+
+  <!-- Borda Y0 (topo) -->
+  <line x1="97.5" y1="175.0" x2="522.5" y2="175.0" stroke="#059669" stroke-width="6" />
+  <text x="310.0" y="163.0" font-family="sans-serif" font-size="11" fill="#059669" text-anchor="middle">APOIADA</text>
+
+  <!-- Borda Y1 (base) -->
+  <line x1="97.5" y1="515.0" x2="522.5" y2="515.0" stroke="#059669" stroke-width="6" />
+  <text x="310.0" y="537.0" font-family="sans-serif" font-size="11" fill="#059669" text-anchor="middle">APOIADA</text>
+
+  <!-- Cotas de Dimensão -->
+  <text x="310.0" y="557.0" font-family="monospace" font-size="13" font-weight="700" fill="#38bdf8" text-anchor="middle">ly = 5.00 m</text>
+  <text x="62.5" y="345.0" font-family="monospace" font-size="13" font-weight="700" fill="#38bdf8" text-anchor="middle" transform="rotate(-90, 62.5, 345.0)">lx = 4.00 m</text>
+
+  <!-- Painel 2: Esforços Solicitantes de Cálculo (ELU) -->
+  <rect x="630" y="140" width="370" height="440" rx="12" fill="url(#cardGrad)" filter="url(#dropShadow)" />
+  <text x="655" y="175" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#38bdf8">2. Esforços de Cálculo (ELU)</text>
+  <text x="655" y="200" font-family="system-ui, sans-serif" font-size="13" fill="#94a3b8">Método Marcus: TIPO_1 · λ = 1.25</text>
+
+  <!-- Tabela de Cargas e Momentos -->
+  <g transform="translate(655, 230)">
+    <text y="0" font-family="sans-serif" font-size="13" fill="#94a3b8">Carga Total p_d (1.4*p):</text>
+    <text x="320" y="0" font-family="monospace" font-size="14" font-weight="700" fill="#f8fafc" text-anchor="end">8.40 kN/m²</text>
+
+    <text y="35" font-family="sans-serif" font-size="13" fill="#94a3b8">Momento Positivo m_xd:</text>
+    <text x="320" y="35" font-family="monospace" font-size="14" font-weight="700" fill="#f59e0b" text-anchor="end">7.07 kN.m/m</text>
+
+    <text y="70" font-family="sans-serif" font-size="13" fill="#94a3b8">Momento Positivo m_yd:</text>
+    <text x="320" y="70" font-family="monospace" font-size="14" font-weight="700" fill="#10b981" text-anchor="end">4.53 kN.m/m</text>
+
+    <text y="105" font-family="sans-serif" font-size="13" fill="#94a3b8">Momento Negativo m_xed:</text>
+    <text x="320" y="105" font-family="monospace" font-size="14" font-weight="700" fill="#ef4444" text-anchor="end">0.00 kN.m/m</text>
+
+    <text y="140" font-family="sans-serif" font-size="13" fill="#94a3b8">Momento Negativo m_yed:</text>
+    <text x="320" y="140" font-family="monospace" font-size="14" font-weight="700" fill="#ef4444" text-anchor="end">0.00 kN.m/m</text>
+
+    <text y="175" font-family="sans-serif" font-size="13" fill="#94a3b8">Reação Linear V_x:</text>
+    <text x="320" y="175" font-family="monospace" font-size="14" font-weight="700" fill="#38bdf8" text-anchor="end">8.28 kN/m</text>
+
+    <text y="210" font-family="sans-serif" font-size="13" fill="#94a3b8">Reação Linear V_y:</text>
+    <text x="320" y="210" font-family="monospace" font-size="14" font-weight="700" fill="#38bdf8" text-anchor="end">3.72 kN/m</text>
+
+    <text y="245" font-family="sans-serif" font-size="13" fill="#94a3b8">Cortante Máx V_sd:</text>
+    <text x="320" y="245" font-family="monospace" font-size="14" font-weight="700" fill="#e2e8f0" text-anchor="end">11.59 kN/m</text>
+
+    <text y="280" font-family="sans-serif" font-size="13" fill="#94a3b8">Cortante Resistente V_Rd1:</text>
+    <text x="320" y="280" font-family="monospace" font-size="14" font-weight="700" fill="#10b981" text-anchor="end">59.53 kN/m</text>
+
+    <text y="315" font-family="sans-serif" font-size="13" fill="#94a3b8">Taxa Solicitação Vsd/VRd1:</text>
+    <text x="320" y="315" font-family="monospace" font-size="14" font-weight="700" fill="#10b981" text-anchor="end">19.5%</text>
+  </g>
+
+  <!-- Painel 3: Detalhamento de Armaduras e ELS -->
+  <rect x="1020" y="140" width="390" height="440" rx="12" fill="url(#cardGrad)" filter="url(#dropShadow)" />
+  <text x="1045" y="175" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#38bdf8">3. Armaduras e Estados de Serviço</text>
+  <text x="1045" y="200" font-family="system-ui, sans-serif" font-size="13" fill="#94a3b8">Aço CA-50 · f_ck = 25 MPa · CAA_II</text>
+
+  <!-- Bloco Armadura X -->
+  <rect x="1045" y="225" width="340" height="75" rx="8" fill="#0f172a" fill-opacity="0.6" stroke="#f59e0b" stroke-width="1.5" />
+  <text x="1060" y="250" font-family="sans-serif" font-size="13" font-weight="700" fill="#f59e0b">Armadura Positiva Direção X</text>
+  <text x="1060" y="272" font-family="monospace" font-size="12" fill="#94a3b8">As calc: 2.41 cm²/m · As min: 1.50 cm²/m</text>
+  <text x="1060" y="292" font-family="monospace" font-size="13" font-weight="700" fill="#f8fafc">Detalhamento: Φ 8.0 mm c/ 20 cm (As=2.51 cm²/m)</text>
+
+  <!-- Bloco Armadura Y -->
+  <rect x="1045" y="315" width="340" height="75" rx="8" fill="#0f172a" fill-opacity="0.6" stroke="#10b981" stroke-width="1.5" />
+  <text x="1060" y="340" font-family="sans-serif" font-size="13" font-weight="700" fill="#10b981">Armadura Positiva Direção Y</text>
+  <text x="1060" y="362" font-family="monospace" font-size="12" fill="#94a3b8">As calc: 1.72 cm²/m · As min: 1.50 cm²/m</text>
+  <text x="1060" y="382" font-family="monospace" font-size="13" font-weight="700" fill="#f8fafc">Detalhamento: Φ 8.0 mm c/ 20 cm (As=2.51 cm²/m)</text>
+
+  <!-- Bloco ELS (Flecha e Fissura) -->
+  <rect x="1045" y="405" width="340" height="150" rx="8" fill="#0f172a" fill-opacity="0.6" />
+  <text x="1060" y="430" font-family="sans-serif" font-size="13" font-weight="700" fill="#38bdf8">Verificação dos Estados Limites de Serviço</text>
+  <text x="1060" y="455" font-family="sans-serif" font-size="12" fill="#94a3b8">Flecha Imediata (f0):</text>
+  <text x="1370" y="455" font-family="monospace" font-size="13" font-weight="700" fill="#f8fafc" text-anchor="end">0.960 cm</text>
+  <text x="1060" y="480" font-family="sans-serif" font-size="12" fill="#94a3b8">Flecha Total Diferida (ftot):</text>
+  <text x="1370" y="480" font-family="monospace" font-size="13" font-weight="700" fill="#10b981" text-anchor="end">2.880 cm &lt;= 1.600 cm (OK)</text>
+  <text x="1060" y="505" font-family="sans-serif" font-size="12" fill="#94a3b8">Abertura de Fissuras wk:</text>
+  <text x="1370" y="505" font-family="monospace" font-size="13" font-weight="700" fill="#10b981" text-anchor="end">0.15 mm &lt;= 0.30 mm (OK)</text>
+  <text x="1060" y="530" font-family="sans-serif" font-size="12" fill="#94a3b8">Cobrimento Nominal c_nom:</text>
+  <text x="1370" y="530" font-family="monospace" font-size="13" font-weight="700" fill="#f8fafc" text-anchor="end">2.5 cm (CAA_II)</text>
+
+  <!-- Painel Inferior: Resumo Normativo e Auditoria -->
+  <rect x="30" y="600" width="1380" height="270" rx="12" fill="url(#cardGrad)" filter="url(#dropShadow)" />
+  <text x="55" y="635" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#38bdf8">4. Auditoria Estrutural e Resumo Executivo Normativo</text>
+
+  <!-- 4 Cards Informativos -->
+  <g transform="translate(55, 660)">
+    <!-- Card 1: Cisalhamento V_Rd1 -->
+    <rect width="310" height="185" rx="8" fill="#0f172a" fill-opacity="0.8" stroke="#10b981" stroke-width="1.5" />
+    <text x="20" y="32" font-family="sans-serif" font-size="14" font-weight="700" fill="#f8fafc">Força Cortante (V_Rd1)</text>
+    <text x="20" y="60" font-family="sans-serif" font-size="12" fill="#94a3b8">V_sd: 11.59 kN/m</text>
+    <text x="20" y="85" font-family="sans-serif" font-size="12" fill="#94a3b8">V_Rd1: 59.53 kN/m</text>
+    <text x="20" y="110" font-family="sans-serif" font-size="12" fill="#94a3b8">Taxa: 19.5%</text>
+    <rect x="20" y="130" width="270" height="35" rx="6" fill="#10b981" fill-opacity="0.2" />
+    <text x="155" y="152" font-family="sans-serif" font-size="12" font-weight="700" fill="#10b981" text-anchor="middle">DISPENSA ESTRIBOS</text>
+
+    <!-- Card 2: Deformação ELS-DEF -->
+    <g transform="translate(330, 0)">
+      <rect width="310" height="185" rx="8" fill="#0f172a" fill-opacity="0.8" stroke="#ef4444" stroke-width="1.5" />
+      <text x="20" y="32" font-family="sans-serif" font-size="14" font-weight="700" fill="#f8fafc">Flecha Excessiva (ELS-DEF)</text>
+      <text x="20" y="60" font-family="sans-serif" font-size="12" fill="#94a3b8">f_imediata: 0.960 cm</text>
+      <text x="20" y="85" font-family="sans-serif" font-size="12" fill="#94a3b8">f_total diferida: 2.880 cm</text>
+      <text x="20" y="110" font-family="sans-serif" font-size="12" fill="#94a3b8">Limite lx/250: 1.600 cm</text>
+      <rect x="20" y="130" width="270" height="35" rx="6" fill="#ef4444" fill-opacity="0.2" />
+      <text x="155" y="152" font-family="sans-serif" font-size="12" font-weight="700" fill="#ef4444" text-anchor="middle">FLECHA CONFORME</text>
+    </g>
+
+    <!-- Card 3: Fissuração ELS-W -->
+    <g transform="translate(660, 0)">
+      <rect width="310" height="185" rx="8" fill="#0f172a" fill-opacity="0.8" stroke="#10b981" stroke-width="1.5" />
+      <text x="20" y="32" font-family="sans-serif" font-size="14" font-weight="700" fill="#f8fafc">Fissuração (ELS-W)</text>
+      <text x="20" y="60" font-family="sans-serif" font-size="12" fill="#94a3b8">wk estimado: 0.15 mm</text>
+      <text x="20" y="85" font-family="sans-serif" font-size="12" fill="#94a3b8">w_limite (CAA_II): 0.30 mm</text>
+      <text x="20" y="110" font-family="sans-serif" font-size="12" fill="#94a3b8">Cobrimento c_nom: 2.5 cm</text>
+      <rect x="20" y="130" width="270" height="35" rx="6" fill="#10b981" fill-opacity="0.2" />
+      <text x="155" y="152" font-family="sans-serif" font-size="12" font-weight="700" fill="#10b981" text-anchor="middle">FISSURAÇÃO ATENDIDA</text>
+    </g>
+
+    <!-- Card 4: Detalhamento Executivo -->
+    <g transform="translate(990, 0)">
+      <rect width="330" height="185" rx="8" fill="#0f172a" fill-opacity="0.8" stroke="#38bdf8" stroke-width="1.5" />
+      <text x="20" y="32" font-family="sans-serif" font-size="14" font-weight="700" fill="#f8fafc">Síntese de Armaduras</text>
+      <text x="20" y="60" font-family="monospace" font-size="12" fill="#f59e0b">X+: Φ8.0 c/20cm (2.51 cm²/m)</text>
+      <text x="20" y="85" font-family="monospace" font-size="12" fill="#10b981">Y+: Φ8.0 c/20cm (2.51 cm²/m)</text>
+      <text x="20" y="110" font-family="monospace" font-size="12" fill="#38bdf8">Concreto: C25 · Aço CA-50</text>
+      <rect x="20" y="130" width="290" height="35" rx="6" fill="#10b981" fill-opacity="0.2" />
+      <text x="165" y="152" font-family="sans-serif" font-size="12" font-weight="700" fill="#10b981" text-anchor="middle">PRONTO P/ EXECUÇÃO</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,97 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test-linux:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12", "3.13", "3.14"]
+    env:
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configurar Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Executar testes unitários
+        run: |
+          python -m unittest discover -s tests -v
+
+      - name: Executar auditor independente SQLite
+        run: |
+          python tools/verify_independent.py
+
+      - name: Testar execução CLI
+        run: |
+          python -m lajes_concreto_nbr6118.cli --ajuda
+          python -m lajes_concreto_nbr6118.cli calcular examples/laje_piso_residencial_cruz.json --formato texto
+          python -m lajes_concreto_nbr6118.cli calcular examples/laje_unidirecional_corredor_com_continuidade.json --formato json
+
+  test-windows:
+    runs-on: windows-latest
+    env:
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configurar Python 3.14
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+
+      - name: Executar testes unitários no Windows
+        run: |
+          python -m unittest discover -s tests -v
+
+      - name: Executar auditor independente SQLite no Windows
+        run: |
+          python tools/verify_independent.py
+
+      - name: Testar execução CLI no Windows
+        run: |
+          python -m lajes_concreto_nbr6118.cli --ajuda
+          python -m lajes_concreto_nbr6118.cli calcular examples/laje_piso_residencial_cruz.json --formato texto
+
+  packaging-and-isolation:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configurar Python 3.14
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+
+      - name: Instalar ferramentas de empacotamento
+        run: |
+          python -m pip install --upgrade pip build wheel
+
+      - name: Construir sdist e wheel
+        run: |
+          python -m build
+
+      - name: Verificar integridade e membros do pacote
+        run: |
+          python scripts/check_distribution.py
+
+      - name: Testar execução sem acesso à rede (Network Isolation)
+        run: |
+          if command -v unshare >/dev/null 2>&1 && unshare -r -n true 2>/dev/null; then
+            unshare -r -n python3 -m unittest discover -s tests -v
+            unshare -r -n python3 tools/verify_independent.py
+          else
+            echo "Aviso: unshare de namespace de rede não suportado neste ambiente; executando sem unshare."
+            python3 -m unittest discover -s tests -v
+            python3 tools/verify_independent.py
+          fi

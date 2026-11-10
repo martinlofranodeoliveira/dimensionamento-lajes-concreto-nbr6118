@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dimensionamento-lajes-concreto-nbr6118"
+version = "1.0.0"
+description = "Dimensionamento e verificação analítica de lajes maciças de concreto armado segundo a ABNT NBR 6118:2023 em frações exatas e Python puro."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+    { name = "Lofrano Tecnologia", email = "contato@lofranotecnologia.com.br" }
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Operating System :: OS Independent",
+    "Natural Language :: Portuguese (Brazilian)",
+]
+keywords = [
+    "engenharia-estrutural",
+    "concreto-armado",
+    "nbr6118",
+    "lajes-macicas",
+    "calculo-estrutural",
+    "tabelas-marcus",
+    "fracoes-exatas",
+]
+
+[project.scripts]
+lajes-concreto = "lajes_concreto_nbr6118.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/martinlofranodeoliveira/dimensionamento-lajes-concreto-nbr6118"
+Repository = "https://github.com/martinlofranodeoliveira/dimensionamento-lajes-concreto-nbr6118"
+Issues = "https://github.com/martinlofranodeoliveira/dimensionamento-lajes-concreto-nbr6118/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+lajes_concreto_nbr6118 = ["py.typed"]

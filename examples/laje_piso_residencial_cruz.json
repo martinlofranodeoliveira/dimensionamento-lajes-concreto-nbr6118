@@ -1,0 +1,20 @@
+{
+  "identificador": "L1_Piso_Residencial",
+  "lx_m": "4.0",
+  "ly_m": "5.0",
+  "h_cm": "10.0",
+  "fck_classe": "C25",
+  "classe_agressividade": "CAA_II",
+  "tipo_uso": "PISO_NAO_BALANCO",
+  "g_adicional_kn_m2": "1.5",
+  "q_acidental_kn_m2": "2.0",
+  "vinculacoes": {
+    "borda_x0": "APOIADA",
+    "borda_x1": "APOIADA",
+    "borda_y0": "APOIADA",
+    "borda_y1": "APOIADA"
+  },
+  "bitola_x_mm": "8.0",
+  "bitola_y_mm": "8.0",
+  "bitola_engaste_mm": "10.0"
+}

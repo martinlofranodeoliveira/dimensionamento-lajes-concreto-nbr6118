@@ -1,0 +1,20 @@
+{
+  "identificador": "L2_Corredor_Unidirecional",
+  "lx_m": "2.4",
+  "ly_m": "6.0",
+  "h_cm": "9.0",
+  "fck_classe": "C30",
+  "classe_agressividade": "CAA_II",
+  "tipo_uso": "PISO_NAO_BALANCO",
+  "g_adicional_kn_m2": "1.2",
+  "q_acidental_kn_m2": "3.0",
+  "vinculacoes": {
+    "borda_x0": "ENGASTADA",
+    "borda_x1": "APOIADA",
+    "borda_y0": "APOIADA",
+    "borda_y1": "APOIADA"
+  },
+  "bitola_x_mm": "8.0",
+  "bitola_y_mm": "6.3",
+  "bitola_engaste_mm": "10.0"
+}

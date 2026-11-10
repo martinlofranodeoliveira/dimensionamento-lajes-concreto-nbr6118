@@ -2,18 +2,25 @@ name: CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ main ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ main ]
 
 jobs:
-  test-linux:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.11", "3.12", "3.13", "3.14"]
+  test:
+    name: Testes (${{ matrix.os }} / Python ${{ matrix.python-version }})
+    runs-on: ${{ matrix.os }}
     env:
       PYTHONIOENCODING: utf-8
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        python-version: ["3.11", "3.12", "3.13", "3.14"]
+        include:
+          - os: windows-latest
+            python-version: "3.14"
+
     steps:
       - uses: actions/checkout@v4
 
@@ -22,46 +29,18 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Executar testes unitários
+      - name: Executar suíte de testes unitários
+        shell: bash
         run: |
-          python -m unittest discover -s tests -v
+          PYTHONPATH=src python -m unittest discover -s tests -v
 
       - name: Executar auditor independente SQLite
+        shell: bash
         run: |
           python tools/verify_independent.py
 
-      - name: Testar execução CLI
-        run: |
-          python -m lajes_concreto_nbr6118.cli --ajuda
-          python -m lajes_concreto_nbr6118.cli calcular examples/laje_piso_residencial_cruz.json --formato texto
-          python -m lajes_concreto_nbr6118.cli calcular examples/laje_unidirecional_corredor_com_continuidade.json --formato json
-
-  test-windows:
-    runs-on: windows-latest
-    env:
-      PYTHONIOENCODING: utf-8
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Configurar Python 3.14
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.14"
-
-      - name: Executar testes unitários no Windows
-        run: |
-          python -m unittest discover -s tests -v
-
-      - name: Executar auditor independente SQLite no Windows
-        run: |
-          python tools/verify_independent.py
-
-      - name: Testar execução CLI no Windows
-        run: |
-          python -m lajes_concreto_nbr6118.cli --ajuda
-          python -m lajes_concreto_nbr6118.cli calcular examples/laje_piso_residencial_cruz.json --formato texto
-
-  packaging-and-isolation:
+  packaging:
+    name: Empacotamento e Verificação Isolada de Rede
     runs-on: ubuntu-latest
     env:
       PYTHONIOENCODING: utf-8
@@ -73,17 +52,24 @@ jobs:
         with:
           python-version: "3.14"
 
-      - name: Instalar ferramentas de empacotamento
+      - name: Instalar ferramentas de build
         run: |
           python -m pip install --upgrade pip build wheel
 
-      - name: Construir sdist e wheel
+      - name: Construir distribuições (sdist e wheel)
         run: |
           python -m build
 
-      - name: Verificar integridade e membros do pacote
+      - name: Inspecionar e validar arquivos construídos
         run: |
           python scripts/check_distribution.py
+
+      - name: Testar instalação limpa do wheel e comandos CLI
+        run: |
+          python -m pip install dist/*.whl
+          lajes-concreto --ajuda
+          lajes-concreto calcular examples/laje_piso_residencial_cruz.json --formato texto
+          lajes-concreto calcular examples/laje_unidirecional_corredor_com_continuidade.json --formato json
 
       - name: Testar execução sem acesso à rede (Network Isolation)
         run: |
@@ -91,7 +77,7 @@ jobs:
             unshare -r -n python3 -m unittest discover -s tests -v
             unshare -r -n python3 tools/verify_independent.py
           else
-            echo "Aviso: unshare de namespace de rede não suportado neste ambiente; executando sem unshare."
+            echo "Aviso: unshare de rede indisponível; executando testes locais."
             python3 -m unittest discover -s tests -v
             python3 tools/verify_independent.py
           fi
